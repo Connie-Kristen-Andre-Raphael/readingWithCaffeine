@@ -16,15 +16,29 @@ class App extends Component {
       coffeeShops: [],
       distanceBetween: '',
       selectedCoffeeShop: '',
-      
-      
+
+
     }
   }
+  componentDidMount(t) {
+    const apiKey = "rNUBvav2dEGGss4WVvHK64tVGGygn3zB";
+    axios({
+      url: "http://www.mapquestapi.com/search/v3/prediction",
+      params: {
+        q: 'library',
+        collection: 'poi',
+        key: apiKey,
+      },
+    }).then((res) => {
+      console.log(res.data.results);
+    });
+  }
+
 
   handleUserInputChange = (event) => {
     const userInput = event.target.value;
     console.log(userInput);
-    this.setState({userInput}) 
+    this.setState({ userInput })
   }
 
   handleFormSubmit = (event) => {
@@ -37,7 +51,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Reading With Caffeine </h1>
-        <Form 
+        <Form
           userInput={this.userInput}
           handleUserInputChange={this.handleUserInputChange}
           handleFormSubmit={this.handleFormSubmit}
