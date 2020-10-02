@@ -1,30 +1,30 @@
-import React, { Component } from "react";
-import axios from "axios";
-import "./App.css";
-import Header from "./Header";
-import Form from "./Form";
-import Results from "./Results";
-import Footer from "./Footer";
+import React, { Component } from 'react';
+import axios from 'axios';
+import './App.css';
+import Header from './Header';
+import Form from './Form';
+import Results from './Results';
+import Footer from './Footer';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      userInput: "", // to register change of library selection
-      selectedLibrary: "", // to grab value of library
-      selectedRadius: "",
+      userInput: '', // to register change of library selection
+      selectedLibrary: '', // to grab value of library
+      selectedRadius: '',
       coffeeShops: [],
-      distanceBetween: "",
-      selectedCoffeeShop: "",
+      distanceBetween: '',
+      selectedCoffeeShop: '',
     };
   }
   componentDidMount(t) {
-    const apiKey = "rNUBvav2dEGGss4WVvHK64tVGGygn3zB";
+    const apiKey = 'rNUBvav2dEGGss4WVvHK64tVGGygn3zB';
     axios({
-      url: "http://www.mapquestapi.com/search/v3/prediction",
+      url: 'http://www.mapquestapi.com/search/v3/prediction',
       params: {
-        q: "library",
-        collection: "poi",
+        q: 'library',
+        collection: 'poi',
         key: apiKey,
       },
     }).then((res) => {
@@ -40,12 +40,12 @@ class App extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log("form submitted");
+    console.log('form submitted');
   };
 
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <h1>Reading With Caffeine </h1>
         <Form
           userInput={this.userInput}
