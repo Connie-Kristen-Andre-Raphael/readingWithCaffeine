@@ -46,12 +46,13 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <h1>Reading With Caffeine </h1>
+        <Header />
         <Form
           userInput={this.userInput}
           handleUserInputChange={this.handleUserInputChange}
           handleFormSubmit={this.handleFormSubmit}
         />
+        <Footer />
       </div>
     );
   }
